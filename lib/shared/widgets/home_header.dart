@@ -6,7 +6,7 @@ import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../l10n/strings.dart';
 
-/// Cabeçalho da Home: logo (nascer do sol dourado) + nome do app + subtítulo,
+/// Cabeçalho da Home: logo (pinheiro de Natal) + nome do app + subtítulo,
 /// e um botão de notificações opcional (só quando houver funcionalidade real).
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key, this.onNotifications});
@@ -30,7 +30,7 @@ class HomeHeader extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(AppRadii.chip),
           ),
-          child: const Icon(LucideIcons.sunrise, color: AppColors.bg, size: 24),
+          child: const Icon(LucideIcons.treePine, color: AppColors.bg, size: 24),
         ),
         const SizedBox(width: AppSpacing.x3),
         Expanded(
