@@ -12,9 +12,7 @@ class AdsService with WidgetsBindingObserver {
   AdsService._();
   static final AdsService instance = AdsService._();
 
-  /// TODO(app40): criar o app "Mensagens de Natal e Ano Novo" no AdMob, colar
-  /// os IDs reais abaixo + APP ID no manifest e desligar `_useTestAds`.
-  static const bool _useTestAds = true;
+  static const bool _useTestAds = false;
   static const bool _fullScreenAdsEnabled = true;
 
   // IDs de TESTE oficiais do Google
@@ -24,12 +22,12 @@ class AdsService with WidgetsBindingObserver {
   static const _testAppOpen = 'ca-app-pub-3940256099942544/9257395921';
   static const _testNative = 'ca-app-pub-3940256099942544/2247696110';
 
-  // IDs REAIS — Mensagens de Natal e Ano Novo (AINDA NÃO CRIADOS no AdMob).
-  static const _realBanner = 'ca-app-pub-0000000000000000/0000000000';
-  static const _realInterstitial = 'ca-app-pub-0000000000000000/0000000000';
-  static const _realRewarded = 'ca-app-pub-0000000000000000/0000000000';
-  static const _realAppOpen = 'ca-app-pub-0000000000000000/0000000000';
-  static const _realNative = 'ca-app-pub-0000000000000000/0000000000';
+  // IDs REAIS — Mensagens de Natal e Ano Novo (AdMob, conta Beggins).
+  static const _realBanner = 'ca-app-pub-5880219350817278/7862350478';
+  static const _realInterstitial = 'ca-app-pub-5880219350817278/4046073594';
+  static const _realRewarded = 'ca-app-pub-5880219350817278/6549268803';
+  static const _realAppOpen = 'ca-app-pub-5880219350817278/3152949270';
+  static const _realNative = 'ca-app-pub-5880219350817278/5779112614';
   static bool _ph(String id) => id.contains('0000000000');
 
   bool _initialized = false;
