@@ -25,38 +25,36 @@ class VerseCategory {
   final String asset;
 }
 
-/// Banco local de frases carregado de `assets/frases/<lang>.json` (pt/en/es),
-/// ~5.900 frases ORIGINAIS por idioma em 14 categorias. Offline. `init()` deve
-/// ser chamado no startup (ver main) antes de usar.
+/// Banco local de mensagens carregado de `assets/frases/<lang>.json` (pt/en/es),
+/// 1.296 mensagens ORIGINAIS por idioma em 12 categorias de Natal e Ano Novo.
+/// Offline. `init()` deve ser chamado no startup (ver main) antes de usar.
 class VerseData {
   VerseData._();
 
   static const categories = <VerseCategory>[
-    VerseCategory('motivacao', LucideIcons.mountain,
-        'assets/landscapes/cat_motivacao.jpg'),
-    VerseCategory('superacao', LucideIcons.trendingUp,
-        'assets/landscapes/editor_bg03.jpg'),
-    VerseCategory('sucesso', LucideIcons.trophy,
-        'assets/landscapes/editor_bg02.jpg'),
-    VerseCategory('coragem', LucideIcons.flame,
-        'assets/landscapes/editor_bg01.jpg'),
-    VerseCategory('trabalho', LucideIcons.briefcase,
-        'assets/landscapes/cat_trabalho.jpg'),
+    VerseCategory('natal', LucideIcons.treePine,
+        'assets/landscapes/cat_natal.jpg'),
+    VerseCategory('ano_novo', LucideIcons.partyPopper,
+        'assets/landscapes/cat_ano_novo.jpg'),
+    VerseCategory('familia', LucideIcons.house,
+        'assets/landscapes/cat_familia.jpg'),
+    VerseCategory('amigos', LucideIcons.users,
+        'assets/landscapes/cat_amigos.jpg'),
     VerseCategory('amor', LucideIcons.heart, 'assets/landscapes/cat_amor.jpg'),
-    VerseCategory('amizade', LucideIcons.users,
-        'assets/landscapes/insp_coast.jpg'),
-    VerseCategory('gratidao', LucideIcons.sparkles,
-        'assets/landscapes/editor_bg07.jpg'),
-    VerseCategory('felicidade', LucideIcons.sun,
-        'assets/landscapes/cat_felicidade.jpg'),
-    VerseCategory('vida', LucideIcons.sprout, 'assets/landscapes/cat_vida.jpg'),
-    VerseCategory('reflexao', LucideIcons.feather,
-        'assets/landscapes/cat_reflexao.jpg'),
-    VerseCategory('sabedoria', LucideIcons.bookOpen,
-        'assets/landscapes/editor_bg08.jpg'),
-    VerseCategory('paz', LucideIcons.leaf, 'assets/landscapes/editor_bg06.jpg'),
-    VerseCategory('esperanca', LucideIcons.sunrise,
-        'assets/landscapes/editor_bg04.jpg'),
+    VerseCategory('religiosas', LucideIcons.church,
+        'assets/landscapes/cat_religiosas.jpg'),
+    VerseCategory('engracadas', LucideIcons.laugh,
+        'assets/landscapes/cat_engracadas.jpg'),
+    VerseCategory('clientes_trabalho', LucideIcons.briefcase,
+        'assets/landscapes/cat_clientes_trabalho.jpg'),
+    VerseCategory('boas_festas', LucideIcons.gift,
+        'assets/landscapes/cat_boas_festas.jpg'),
+    VerseCategory('gratidao', LucideIcons.heartHandshake,
+        'assets/landscapes/cat_gratidao.jpg'),
+    VerseCategory('reveillon', LucideIcons.wine,
+        'assets/landscapes/cat_reveillon.jpg'),
+    VerseCategory('prosperidade', LucideIcons.coins,
+        'assets/landscapes/cat_prosperidade.jpg'),
   ];
 
   static final Map<String, Map<String, List<String>>> _content = {};
@@ -147,7 +145,7 @@ class VerseData {
   /// Frase do dia — determinística por dia, no idioma pedido.
   static Verse ofToday(String lang) {
     final all = allFor(lang);
-    if (all.isEmpty) return const Verse('motivacao', 0, '');
+    if (all.isEmpty) return const Verse('natal', 0, '');
     final now = DateTime.now();
     final seed = now.year * 1000 + _dayOfYear(now);
     return all[seed % all.length];
@@ -156,7 +154,7 @@ class VerseData {
   /// Uma frase aleatória (botão "Nova frase").
   static Verse random(String lang) {
     final all = allFor(lang);
-    if (all.isEmpty) return const Verse('motivacao', 0, '');
+    if (all.isEmpty) return const Verse('natal', 0, '');
     final idx = DateTime.now().microsecondsSinceEpoch % all.length;
     return all[idx];
   }

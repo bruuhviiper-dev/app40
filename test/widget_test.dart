@@ -13,18 +13,18 @@ void main() {
     await VerseData.init();
   });
 
-  test('14 categorias; cada frase pertence a uma delas (pt)', () {
-    expect(VerseData.categories.length, 14);
+  test('12 categorias; cada mensagem pertence a uma delas (pt)', () {
+    expect(VerseData.categories.length, 12);
     final ids = VerseData.categories.map((c) => c.id).toSet();
     for (final v in VerseData.allFor('pt')) {
       expect(ids.contains(v.categoryId), isTrue);
     }
   });
 
-  test('pelo menos 5000 frases por idioma (pt/en/es)', () {
-    expect(VerseData.allFor('pt').length, greaterThanOrEqualTo(5000));
-    expect(VerseData.allFor('en').length, greaterThanOrEqualTo(5000));
-    expect(VerseData.allFor('es').length, greaterThanOrEqualTo(5000));
+  test('pelo menos 1200 mensagens por idioma (pt/en/es)', () {
+    expect(VerseData.allFor('pt').length, greaterThanOrEqualTo(1200));
+    expect(VerseData.allFor('en').length, greaterThanOrEqualTo(1200));
+    expect(VerseData.allFor('es').length, greaterThanOrEqualTo(1200));
   });
 
   test('conteúdo pt/en/es paralelo (mesmo nº por categoria; ids estáveis)', () {
@@ -56,8 +56,8 @@ void main() {
     expect(pt.appName, 'Mensagens de Natal e Ano Novo');
     expect(en.appName, 'Christmas & New Year Wishes');
     expect(es.appName, 'Mensajes de Navidad y Año Nuevo');
-    expect(pt.catName('esperanca'), 'Esperança');
+    expect(pt.catName('reveillon'), 'Réveillon');
     expect(en.catName('gratidao'), 'Gratitude');
-    expect(es.catName('sabedoria'), 'Sabiduría');
+    expect(es.catName('ano_novo'), 'Año Nuevo');
   });
 }
