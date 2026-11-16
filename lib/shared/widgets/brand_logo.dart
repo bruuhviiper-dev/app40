@@ -6,8 +6,9 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../l10n/strings.dart';
 
-/// Logo da marca: chip "nascer do sol" dourado + nome do app. Usado no Splash
-/// e no Onboarding. [stacked] empilha (vertical) ou alinha (horizontal).
+/// Logo da marca: chip dourado com a ESTRELA de Natal (mesmo motivo do ícone
+/// do launcher) + nome do app. Usado no Splash e no Onboarding. [stacked]
+/// empilha (vertical) ou alinha (horizontal).
 class BrandLogo extends StatelessWidget {
   const BrandLogo({
     super.key,
@@ -25,7 +26,7 @@ class BrandLogo extends StatelessWidget {
     final name = T.of(context).appName;
     final titleColor = AppColors.gold;
 
-    final sun = Container(
+    final star = Container(
       width: size,
       height: size,
       decoration: BoxDecoration(
@@ -36,7 +37,7 @@ class BrandLogo extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(size * 0.3),
       ),
-      child: Icon(LucideIcons.sunrise, color: AppColors.bg, size: size * 0.54),
+      child: Icon(LucideIcons.star, color: AppColors.bg, size: size * 0.54),
     );
 
     final title = Text(
@@ -53,12 +54,12 @@ class BrandLogo extends StatelessWidget {
     if (stacked) {
       return Column(
         mainAxisSize: MainAxisSize.min,
-        children: [sun, SizedBox(height: AppSpacing.x4), title],
+        children: [star, SizedBox(height: AppSpacing.x4), title],
       );
     }
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: [sun, SizedBox(width: AppSpacing.x3), Flexible(child: title)],
+      children: [star, SizedBox(width: AppSpacing.x3), Flexible(child: title)],
     );
   }
 }
