@@ -203,7 +203,7 @@ class _Scrim extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0x22000000), Color(0x55000000), Color(0xCC06111F)],
+          colors: [Color(0x22000000), Color(0x55000000), Color(0xCC07190F)],
           stops: [0.0, 0.42, 1.0],
         ),
       ),

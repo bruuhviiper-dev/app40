@@ -191,7 +191,7 @@ class _InspScrim extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0x22000000), Color(0x66000000), Color(0xDD06111F)],
+          colors: [Color(0x22000000), Color(0x66000000), Color(0xDD07190F)],
           stops: [0.0, 0.45, 1.0],
         ),
       ),

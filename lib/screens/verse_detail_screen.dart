@@ -71,8 +71,8 @@ class _VerseDetailScreenState extends State<VerseDetailScreen> {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [Color(0xBB04101E), Color(0x66000000),
-                        Color(0xEE040C16)],
+                      colors: [Color(0xBB051109), Color(0x66000000),
+                        Color(0xEE040D08)],
                       stops: [0.0, 0.4, 1.0],
                     ),
                   ),

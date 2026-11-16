@@ -142,7 +142,7 @@ class _Slide extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0x66040C16), Color(0x99040C16), Color(0xF2040C16)],
+              colors: [Color(0x66040D08), Color(0x99040D08), Color(0xF2040D08)],
               stops: [0.0, 0.5, 1.0],
             ),
           ),

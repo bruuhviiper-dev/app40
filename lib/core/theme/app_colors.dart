@@ -1,46 +1,52 @@
 import 'package:flutter/material.dart';
 
-/// Tokens de COR — tema PREMIUM (navy profundo + dourado), fiel ao
-/// TEMPLATE-PREMIUM. Nenhuma tela usa cor "solta"; sempre referenciar daqui.
+/// Tokens de COR — tema NATALINO premium (verde-abeto profundo + vermelho-natal
+/// + dourado quente). Nenhuma tela usa cor "solta"; sempre referenciar daqui.
+/// Obs.: os tokens `gold*` mantêm o NOME do template premium, mas o VALOR aqui
+/// é o acento vermelho-natal (toda a UI/botões/seleção muda de uma vez).
 class AppColors {
   AppColors._();
 
-  // Fundo
-  static const bg = Color(0xFF061426); // fundo principal
-  static const bg2 = Color(0xFF0A1D33); // fundo secundário
-  static const surface = Color(0xFF102A43); // cards
-  static const surfaceHigh = Color(0xFF153651); // superfície elevada
+  // Fundo (verde-abeto escuro)
+  static const bg = Color(0xFF07190F); // fundo principal
+  static const bg2 = Color(0xFF0C2418); // fundo secundário
+  static const surface = Color(0xFF112E1C); // cards
+  static const surfaceHigh = Color(0xFF164028); // superfície elevada
 
-  // Marca
-  static const gold = Color(0xFFFFC02E);
-  static const goldDark = Color(0xFFE9A91A);
+  // Marca (acento vermelho-natal — nome `gold` herdado do template)
+  static const gold = Color(0xFFE8424E);
+  static const goldDark = Color(0xFFC9303F);
+
+  // Dourado quente de DETALHE (selos, estrelas, toques festivos)
+  static const xmasGold = Color(0xFFF5C244);
+  static const xmasGoldDark = Color(0xFFD9A52E);
 
   // Texto
   static const textPrimary = Color(0xFFFFFFFF);
-  static const textSecondary = Color(0xFFB9C9D9);
+  static const textSecondary = Color(0xFFC3D4C6);
 
   // Bordas
-  static const border = Color(0xFF294660);
+  static const border = Color(0xFF2A4A33);
 
-  /// Pílula dourada translúcida (badge "FRASE DO DIA").
+  /// Pílula translúcida do acento (badge "MENSAGEM DO DIA").
   static Color get goldPill => gold.withValues(alpha: 0.16);
 
   /// Sobreposição branca em elementos sobre foto/gradiente.
   static Color get onPhotoSurface => Colors.white.withValues(alpha: 0.14);
 
-  // ---- Tema CLARO (para o ajuste de Tema em Configurações) ----
-  static const lBg = Color(0xFFF2F6FC);
-  static const lBg2 = Color(0xFFE9F0F9);
+  // ---- Tema CLARO (neve/creme) ----
+  static const lBg = Color(0xFFFBF7F0);
+  static const lBg2 = Color(0xFFF4EDE1);
   static const lSurface = Color(0xFFFFFFFF);
-  static const lSurfaceHigh = Color(0xFFF7FAFE);
-  static const lTextPrimary = Color(0xFF0B1A2E);
-  static const lTextSecondary = Color(0xFF5B6B80);
-  static const lBorder = Color(0xFFE1E8F2);
+  static const lSurfaceHigh = Color(0xFFFDFAF4);
+  static const lTextPrimary = Color(0xFF1D2A20);
+  static const lTextSecondary = Color(0xFF5E6E62);
+  static const lBorder = Color(0xFFE8E0D2);
 }
 
 /// Cores sensíveis ao TEMA (claro/escuro). As telas de "chrome" (fundos,
 /// cartões sólidos, textos, nav) usam estas; as telas sobre FOTO usam branco
-/// sobre scrim (iguais nos dois temas). O dourado é o mesmo sempre.
+/// sobre scrim (iguais nos dois temas). O acento é o mesmo sempre.
 class Palette {
   const Palette({
     required this.bg,

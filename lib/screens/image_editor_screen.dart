@@ -141,7 +141,7 @@ class _ImageEditorScreenState extends State<ImageEditorScreen> {
   ];
   static const _textColors = [
     Colors.white,
-    Color(0xFFFFC02E),
+    Color(0xFFF5C244),
     Colors.black,
     Color(0xFFBFE3FF),
     Color(0xFFFFD9C2),
@@ -149,12 +149,12 @@ class _ImageEditorScreenState extends State<ImageEditorScreen> {
 
   // Fundos de COR sólida (curados).
   static const _solidColors = <Color>[
-    Color(0xFF06111F), // navy
-    Color(0xFF14263A),
+    Color(0xFF0C2418), // verde-abeto
+    Color(0xFF164028),
     Color(0xFF2D5FD6), // azul
     Color(0xFF0E7C66), // teal
     Color(0xFF7A3B8E), // roxo
-    Color(0xFFB23A48), // vinho
+    Color(0xFFC9303F), // vermelho-natal
     Color(0xFFD98324), // âmbar
     Color(0xFF2E2E2E), // carvão
     Color(0xFFF2E9DE), // creme
