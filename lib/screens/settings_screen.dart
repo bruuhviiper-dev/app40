@@ -259,13 +259,13 @@ Future<E?> _chooser<E>(
   );
 }
 
-/// Card-convite "Mais apps da Phantom": abre a página do desenvolvedor na
-/// Play Store (padrão da família — mesmo link do app2/app25).
+/// Card-convite "Mais apps da Beggins": abre a página do desenvolvedor na
+/// Play Store (Beggins Apps — link oficial do site bruuhviiper).
 class _MoreAppsCard extends StatelessWidget {
   const _MoreAppsCard();
 
   static final Uri _devPage = Uri.parse(
-      'https://play.google.com/store/apps/developer?id=Phantom+Tecnologia');
+      'https://play.google.com/store/apps/dev?id=8914127458301875694');
 
   @override
   Widget build(BuildContext context) {

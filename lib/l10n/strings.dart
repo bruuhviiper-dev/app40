@@ -16,7 +16,7 @@ class T {
   /// Código do idioma atual (para carregar o CONTEÚDO por locale).
   String get lang => locale.languageCode;
 
-  /// A seção "Mais apps da Phantom" só aparece em PT (diretriz i18n global).
+  /// A seção "Mais apps da Beggins" só aparece em PT (diretriz i18n global).
   bool get isPt => locale.languageCode == 'pt';
 
   /// Nome do app — traduzido por idioma (ver `app.name`).
@@ -69,7 +69,7 @@ class T {
   // Notificação (texto GENÉRICO — nunca revela a frase)
   String get notifBody => _('notifBody');
 
-  // Mais apps da Phantom (só PT — ver isPt)
+  // Mais apps da Beggins (só PT — ver isPt)
   String get moreAppsTitle => _('moreApps.title');
   String get moreAppsDesc => _('moreApps.desc');
 
@@ -241,7 +241,7 @@ class T {
       'verse.one': 'frase',
       'verse.many': 'frases',
       'notifBody': 'Toque para ver a sua mensagem de hoje 🎄',
-      'moreApps.title': 'Mais apps da Phantom',
+      'moreApps.title': 'Mais apps da Beggins',
       'moreApps.desc':
           'Frases, mensagens e muito mais — conheça nossos outros apps na Play Store',
       'removeAdsTitle': 'Remover anúncios',
