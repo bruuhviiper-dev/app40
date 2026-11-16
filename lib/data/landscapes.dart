@@ -1,7 +1,7 @@
-/// Fundos de paisagem (offline). Fotos reais do Unsplash — licença livre para
-/// uso comercial (ver assets/landscapes/ATTRIBUTIONS.md). Organizados por TEMA
-/// para o editor. Fallback elegante quando uma imagem não existir é tratado nos
-/// widgets (gradiente navy + ícone).
+/// Fundos temáticos de Natal e Ano Novo (offline). Fotos reais do Pexels —
+/// Licença Pexels, uso comercial permitido (ver assets/landscapes/
+/// ATTRIBUTIONS.md). Organizados por TEMA para o editor. Fallback elegante
+/// quando uma imagem não existir é tratado nos widgets (gradiente + ícone).
 class Landscapes {
   Landscapes._();
 
@@ -18,48 +18,55 @@ class Landscapes {
 
   static String inspThumb(int i) => inspiration[i % inspiration.length];
 
-  /// Fundos agrupados por TEMA (rótulo é chave de i18n `bgTheme.<key>`).
+  /// Fundos agrupados por TEMA (a chave é só organizacional; o editor usa a
+  /// lista achatada [editorBackgrounds]).
   static const themes = <String, List<String>>{
-    'mountains': [
-      '${_p}cat_motivacao.jpg',
-      '${_p}insp_peak.jpg',
-      '${_p}editor_bg03.jpg',
-      '${_p}bg_mountains_cliff.jpg',
-      '${_p}bg_misty_mountains.jpg',
-      '${_p}bg_valley_sun.jpg',
-    ],
-    'sunrise': [
+    'lights': [
+      '${_p}cat_boas_festas.jpg',
+      '${_p}bg_bokeh_red.jpg',
+      '${_p}bg_bokeh_warm.jpg',
+      '${_p}bg_bokeh_pink.jpg',
       hero,
-      '${_p}cat_felicidade.jpg',
-      '${_p}editor_bg04.jpg',
-      '${_p}bg_sunrise_field.jpg',
-      '${_p}bg_autumn.jpg',
     ],
-    'forest': [
-      '${_p}cat_reflexao.jpg',
-      '${_p}cat_vida.jpg',
-      '${_p}bg_misty_forest.jpg',
-      '${_p}bg_green_hills.jpg',
+    'tree': [
+      '${_p}editor_bg01.jpg',
+      '${_p}cat_natal.jpg',
+      '${_p}cat_engracadas.jpg',
+      '${_p}bg_branch_bow.jpg',
+      onboarding,
     ],
-    'water': [
-      '${_p}cat_amor.jpg',
-      '${_p}insp_coast.jpg',
+    'snow': [
+      '${_p}insp_peak.jpg',
       '${_p}insp_lake.jpg',
-      '${_p}editor_bg05.jpg',
+      '${_p}editor_bg02.jpg',
       '${_p}editor_bg06.jpg',
-      '${_p}bg_calm_lake.jpg',
+      '${_p}bg_tree_snowy.jpg',
+      '${_p}bg_frosted_tree.jpg',
+      '${_p}bg_winter_pines.jpg',
     ],
-    'sky': [
+    'candles': [
+      '${_p}cat_familia.jpg',
+      '${_p}cat_religiosas.jpg',
+      '${_p}cat_gratidao.jpg',
+      '${_p}editor_bg04.jpg',
+      '${_p}bg_candles_ribbons.jpg',
+    ],
+    'fireworks': [
+      '${_p}cat_ano_novo.jpg',
+      '${_p}insp_coast.jpg',
+      '${_p}editor_bg03.jpg',
+      '${_p}bg_fireworks_water.jpg',
+    ],
+    'celebration': [
+      '${_p}cat_amigos.jpg',
+      '${_p}cat_reveillon.jpg',
+      '${_p}cat_amor.jpg',
+      '${_p}cat_clientes_trabalho.jpg',
+      '${_p}cat_prosperidade.jpg',
+      '${_p}editor_bg05.jpg',
       '${_p}editor_bg07.jpg',
       '${_p}editor_bg08.jpg',
-      '${_p}onboarding.jpg',
-    ],
-    'city': [
-      '${_p}cat_trabalho.jpg',
-      '${_p}editor_bg01.jpg',
-      '${_p}editor_bg02.jpg',
-      '${_p}bg_city_geo.jpg',
-      '${_p}bg_city_night.jpg',
+      '${_p}bg_gifts_tree.jpg',
     ],
   };
 
