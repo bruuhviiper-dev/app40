@@ -194,6 +194,14 @@ class T {
   String catName(String id) => _('cat.$id.name');
   String catDesc(String id) => _('cat.$id.desc');
 
+  // Contagem regressiva (Natal 25/12 e Ano Novo 01/01)
+  String get countdownChristmas => _('countdown.christmas');
+  String get countdownNewYear => _('countdown.newYear');
+  String get countdownToday => _('countdown.today');
+  String countdownDays(int n) => n == 1
+      ? _('countdown.oneDay')
+      : _('countdown.days').replaceFirst('{n}', '$n');
+
   static const Map<String, Map<String, String>> _data = {
     'pt': {
       'app.name': 'Mensagens de Natal e Ano Novo',
@@ -357,6 +365,11 @@ class T {
       'errorLoading': 'Não foi possível carregar o conteúdo.',
       'retry': 'Tentar de novo',
       'comingSoon': 'Em breve',
+      'countdown.christmas': 'Natal',
+      'countdown.newYear': 'Ano Novo',
+      'countdown.today': 'É hoje! 🎉',
+      'countdown.oneDay': 'Falta 1 dia',
+      'countdown.days': 'Faltam {n} dias',
       'cat.natal.name': 'Natal',
       'cat.natal.desc': 'Mensagens de Feliz Natal',
       'cat.ano_novo.name': 'Ano Novo',
@@ -542,6 +555,11 @@ class T {
       'errorLoading': 'We could not load the content.',
       'retry': 'Try again',
       'comingSoon': 'Coming soon',
+      'countdown.christmas': 'Christmas',
+      'countdown.newYear': 'New Year',
+      'countdown.today': "It's today! 🎉",
+      'countdown.oneDay': '1 day to go',
+      'countdown.days': '{n} days to go',
       'cat.natal.name': 'Christmas',
       'cat.natal.desc': 'Merry Christmas wishes',
       'cat.ano_novo.name': 'New Year',
@@ -730,6 +748,11 @@ class T {
       'errorLoading': 'No se pudo cargar el contenido.',
       'retry': 'Reintentar',
       'comingSoon': 'Próximamente',
+      'countdown.christmas': 'Navidad',
+      'countdown.newYear': 'Año Nuevo',
+      'countdown.today': '¡Es hoy! 🎉',
+      'countdown.oneDay': 'Falta 1 día',
+      'countdown.days': 'Faltan {n} días',
       'cat.natal.name': 'Navidad',
       'cat.natal.desc': 'Mensajes de Feliz Navidad',
       'cat.ano_novo.name': 'Año Nuevo',

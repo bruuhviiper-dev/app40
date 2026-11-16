@@ -11,6 +11,7 @@ import '../services/app_state.dart';
 import '../services/share_helper.dart';
 import '../services/verse_image_share.dart';
 import '../shared/widgets/category_grid.dart';
+import '../shared/widgets/countdown_card.dart';
 import '../shared/widgets/home_header.dart';
 import '../shared/widgets/inspiration_card.dart';
 import '../shared/widgets/native_ad.dart';
@@ -23,7 +24,7 @@ import 'settings_screen.dart';
 import 'verse_detail_screen.dart';
 
 /// Corpo da Home (usado pela MainShell). Preserva o design aprovado; agora com
-/// navegação real: todas as 14 categorias, inspiração -> detalhe, "Ver todas"
+/// navegação real: todas as 12 categorias, inspiração -> detalhe, "Ver todas"
 /// (inspirações) -> lista completa, sino -> Configurações.
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -62,7 +63,7 @@ class _HomeBodyState extends State<HomeBody> {
     }
 
     final hero = _override ?? VerseData.ofToday(lang);
-    final featured = VerseData.categories; // todas as 14 na Home
+    final featured = VerseData.categories; // todas as 12 na Home
     final more = VerseData.moreInspirations(lang, count: 6);
 
     return SafeArea(
@@ -85,6 +86,22 @@ class _HomeBodyState extends State<HomeBody> {
             onToggleFavorite: () => _toggleFavorite(hero),
             onNewVerse: () =>
                 setState(() => _override = VerseData.random(lang)),
+          ),
+          const SizedBox(height: AppSpacing.x4),
+
+          // Diferencial: contagem regressiva p/ Natal e Ano Novo (toque abre
+          // a categoria correspondente).
+          CountdownCard(
+            onChristmas: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (_) => CategoryVersesScreen(
+                      category: VerseData.categoryById('natal'))),
+            ),
+            onNewYear: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (_) => CategoryVersesScreen(
+                      category: VerseData.categoryById('ano_novo'))),
+            ),
           ),
           const SizedBox(height: AppSpacing.x6),
 
@@ -144,7 +161,7 @@ class _EmptyState extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(LucideIcons.sunrise, size: 48, color: AppColors.gold),
+            const Icon(LucideIcons.treePine, size: 48, color: AppColors.gold),
             const SizedBox(height: AppSpacing.x4),
             Text(message,
                 textAlign: TextAlign.center,

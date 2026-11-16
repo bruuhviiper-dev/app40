@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mensagens_de_natal/data/verses.dart';
 import 'package:mensagens_de_natal/l10n/strings.dart';
+import 'package:mensagens_de_natal/shared/widgets/countdown_card.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -59,5 +60,19 @@ void main() {
     expect(pt.catName('reveillon'), 'Réveillon');
     expect(en.catName('gratidao'), 'Gratitude');
     expect(es.catName('ano_novo'), 'Año Nuevo');
+  });
+
+  test('contagem regressiva: Natal 25/12 e Ano Novo 01/01', () {
+    expect(CountdownCard.daysUntil(DateTime(2026, 12, 25), 12, 25), 0);
+    expect(CountdownCard.daysUntil(DateTime(2026, 12, 24, 23), 12, 25), 1);
+    expect(CountdownCard.daysUntil(DateTime(2026, 12, 26), 12, 25), 364);
+    expect(CountdownCard.daysUntil(DateTime(2026, 12, 31), 1, 1), 1);
+    expect(CountdownCard.daysUntil(DateTime(2026, 1, 1), 1, 1), 0);
+    expect(CountdownCard.daysUntil(DateTime(2026, 11, 16), 12, 25), 39);
+    expect(CountdownCard.daysUntil(DateTime(2026, 11, 16), 1, 1), 46);
+
+    const pt = T(Locale('pt'));
+    expect(pt.countdownDays(1), 'Falta 1 dia');
+    expect(pt.countdownDays(39), 'Faltam 39 dias');
   });
 }
