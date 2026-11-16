@@ -62,6 +62,24 @@ void main() {
     expect(es.catName('ano_novo'), 'Año Nuevo');
   });
 
+  test('i18n: TODA chave PT existe em EN e ES (menus, editor, loja...)', () {
+    final pt = T.data['pt']!;
+    final en = T.data['en']!;
+    final es = T.data['es']!;
+    // Única exceção: "Mais apps da Phantom" é só PT (diretriz i18n global).
+    final ptOnly = pt.keys.where((k) => k.startsWith('moreApps.')).toSet();
+    for (final key in pt.keys.where((k) => !ptOnly.contains(k))) {
+      expect(en.containsKey(key), isTrue, reason: 'EN sem a chave "$key"');
+      expect(es.containsKey(key), isTrue, reason: 'ES sem a chave "$key"');
+      expect(en[key], isNotEmpty, reason: 'EN vazio em "$key"');
+      expect(es[key], isNotEmpty, reason: 'ES vazio em "$key"');
+    }
+    // E nada sobrando em EN/ES que não exista em PT (chave morta/typo).
+    for (final key in [...en.keys, ...es.keys]) {
+      expect(pt.containsKey(key), isTrue, reason: 'PT sem a chave "$key"');
+    }
+  });
+
   test('contagem regressiva: Natal 25/12 e Ano Novo 01/01', () {
     expect(CountdownCard.daysUntil(DateTime(2026, 12, 25), 12, 25), 0);
     expect(CountdownCard.daysUntil(DateTime(2026, 12, 24, 23), 12, 25), 1);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../core/theme/app_colors.dart';
 import '../core/theme/app_spacing.dart';
@@ -84,6 +85,8 @@ class SettingsScreen extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.x4),
           _SectionLabel(t.general),
+          // Convite p/ a página do desenvolvedor na Play (só PT — diretriz i18n).
+          if (t.isPt) const _MoreAppsCard(),
           if (!state.adsRemoved)
             _Tile(
               icon: LucideIcons.ban,
@@ -254,6 +257,71 @@ Future<E?> _chooser<E>(
       ),
     ),
   );
+}
+
+/// Card-convite "Mais apps da Phantom": abre a página do desenvolvedor na
+/// Play Store (padrão da família — mesmo link do app2/app25).
+class _MoreAppsCard extends StatelessWidget {
+  const _MoreAppsCard();
+
+  static final Uri _devPage = Uri.parse(
+      'https://play.google.com/store/apps/developer?id=Phantom+Tecnologia');
+
+  @override
+  Widget build(BuildContext context) {
+    final t = T.of(context);
+    final p = Palette.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
+        color: p.surface,
+        borderRadius: BorderRadius.circular(AppRadii.card),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () =>
+              launchUrl(_devPage, mode: LaunchMode.externalApplication),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppRadii.card),
+              border: Border.all(color: AppColors.xmasGold.withValues(alpha: 0.55)),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+            child: Row(
+              children: [
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    color: AppColors.xmasGold.withValues(alpha: 0.16),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(LucideIcons.store,
+                      size: 20, color: AppColors.xmasGold),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(t.moreAppsTitle,
+                          style: AppTextStyles.body
+                              .copyWith(color: p.textPrimary)),
+                      Text(t.moreAppsDesc,
+                          style: AppTextStyles.caption
+                              .copyWith(color: p.textSecondary)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 6),
+                Icon(LucideIcons.chevronRight,
+                    size: 18, color: p.textSecondary),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _SectionLabel extends StatelessWidget {

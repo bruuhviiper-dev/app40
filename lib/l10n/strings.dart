@@ -16,6 +16,9 @@ class T {
   /// Código do idioma atual (para carregar o CONTEÚDO por locale).
   String get lang => locale.languageCode;
 
+  /// A seção "Mais apps da Phantom" só aparece em PT (diretriz i18n global).
+  bool get isPt => locale.languageCode == 'pt';
+
   /// Nome do app — traduzido por idioma (ver `app.name`).
   String get appName => _('app.name');
 
@@ -65,6 +68,10 @@ class T {
 
   // Notificação (texto GENÉRICO — nunca revela a frase)
   String get notifBody => _('notifBody');
+
+  // Mais apps da Phantom (só PT — ver isPt)
+  String get moreAppsTitle => _('moreApps.title');
+  String get moreAppsDesc => _('moreApps.desc');
 
   // Loja (remover anúncios)
   String get removeAdsTitle => _('removeAdsTitle');
@@ -202,6 +209,10 @@ class T {
       ? _('countdown.oneDay')
       : _('countdown.days').replaceFirst('{n}', '$n');
 
+  /// Exposto só p/ o teste de paridade i18n (toda chave PT existe em EN/ES).
+  @visibleForTesting
+  static Map<String, Map<String, String>> get data => _data;
+
   static const Map<String, Map<String, String>> _data = {
     'pt': {
       'app.name': 'Mensagens de Natal e Ano Novo',
@@ -230,6 +241,9 @@ class T {
       'verse.one': 'frase',
       'verse.many': 'frases',
       'notifBody': 'Toque para ver a sua mensagem de hoje 🎄',
+      'moreApps.title': 'Mais apps da Phantom',
+      'moreApps.desc':
+          'Frases, mensagens e muito mais — conheça nossos outros apps na Play Store',
       'removeAdsTitle': 'Remover anúncios',
       'removeAdsHero': 'Use o app sem anúncios',
       'removeAdsDesc': 'Pagamento único, para sempre. Sem assinaturas.',
